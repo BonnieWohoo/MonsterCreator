@@ -1,0 +1,262 @@
+/* a minimalist set of CSS resets */
+
+/* default to border-box */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* adjust typography defaults */
+body {
+  padding-top:0px;
+  overflow:hidden;
+  background-image: url("/assets/backgrounds/3.png");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+h1 {
+  font-size: 100px;
+  text-align: center;
+  color: black;
+  font-family: babyFont, sans-serif;
+}
+
+@font-face {
+  font-family: babyFont;
+  src: url(https://cdn.glitch.global/32825095-c404-4435-a1f3-10252d619fb0/MISTV___.TTF?v=1695329684198);
+}
+
+.start-menu {
+  flex-direction: column;
+  display: flex;
+  width: 800px;
+  height: 800px;
+  margin: auto; /* Center horizontally */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-image: url("https://cdn.glitch.global/32825095-c404-4435-a1f3-10252d619fb0/box.png?v=1695273125285");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 25px;
+}
+.start-menu img
+{
+  width: 350px;
+  height: auto;
+}
+
+.start-button {
+  color: black;
+  background-color: pink;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 25px;
+  font-size: 64px;
+  font-family: "babyFont", sans-serif;
+  transition: box-shadow 0.15s;
+}
+
+.start-button:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.start-button:active {
+  transform: translate(5px, 5%);
+  box-shadow: 0px 0px 0px white;
+}
+
+.resizable {
+  display: inline-block;
+  background: red;
+  resize: both;
+  overflow: hidden;
+  line-height: 0;
+  max-width: 900px;
+  max-height: 900px;
+}
+
+.resizable img {
+  width: 100%;
+  height: 100%;
+}
+
+#mydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+
+#mydivheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196f3;
+  color: black;
+}
+
+.icon-bar {
+  width: 90px; /* Set a specific width */
+  background-color: grey; /* Dark-grey background */
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.icon-bar a {
+  display: block; /* Make the links appear below each other instead of side-by-side */
+  text-align: center; /* Center-align text */
+  padding: 16px; /* Add some padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 36px; /* Increased font-size */
+}
+
+.icon-bar a:hover {
+  background-color: white; /* Add a hover color */
+}
+
+.active {
+  background-color: #04aa6d; /* Add an active/current color */
+}
+
+.center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.left-screen {
+  width: 60%;
+  float: left;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#icon-bar {
+  height: 9%;
+  width: 100%;
+  background-color: gray;
+  border: 3px solid black;
+}
+
+.icon-left {
+  height: 70px;
+  width: 70px;
+  background: white;
+  border: 3px solid black;
+  float: left;
+  margin-right: 10px;
+}
+.icon-right {
+  height: 70px;
+  width: 70px;
+  background: white;
+  border: 3px solid black;
+  float: right;
+  margin-right: 10px;
+}
+
+#monster {
+  width: 100%;
+  height: 93%;
+}
+
+.right-screen {
+  width: 40%;
+  float: right;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#features-select {
+  height: 17%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.feature {
+  height: 68px;
+  width: 68px;
+  background: white;
+  border: 3px solid black;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 1px;
+  margin-top: 70px;
+}
+
+#specific-features {
+  height: 68%;
+  width: 100%;
+  border: 3px solid black;
+  background-color: beige;
+}
+
+.feature-content {
+  display: none;
+  height: 640px;
+  max-height: 100%;
+}
+
+.feature-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-auto-flow: row;
+  grid-auto-rows: 42%;
+  overflow-y: scroll;
+}
+
+.features .active {
+  background-color: gray;
+}
+
+#finish {
+  height: 15%;
+  width: 100%;
+}
+
+#finish-button {
+  height: 80px;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+
+.draggable {
+    width: 100px;
+    height: 50px;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: grab;
+}

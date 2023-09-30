@@ -1,0 +1,4603 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Monster Creator</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/styles2.css" />
+    
+    <!-- Script for fabric library -->
+    <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
+  </head>
+  <body>
+    <!-- left half of screen contains icons and monster containers-->
+    <div class="left-screen">
+      <table class="table">
+        <!-- ICON BAR-->
+        <tr id="icon-bar">
+          <td>
+            <div class="icon-left">
+              <button class="center" onclick="toGame()">
+                <img src="assets/house-icon.png" />
+              </button>
+              <!--<a id="go-home" href="https://harsh-working-swift.glitch.me/" class="center" ><img src="assets/house-icon.png"> </a>-->
+            </div>
+            <div class="icon-left">
+              <button class="center" onclick="deleteImage()">
+                <img src="assets/trash-icon.png" />
+              </button>
+            </div>
+            <div class="icon-right">
+              <!-- <button class="finish-button" onclick="toFinish()">
+                Finish!
+              </button> -->
+              
+              <a href="./finish.html" target="_blank">
+                <button class="finish-button" id="finishButton">Finish</button>
+              </a>
+            </div>
+          </td>
+        </tr>
+        <!-- MONSTER-->
+        <tr id="monster">
+          <td>
+            <div id="image-container">
+              <canvas id="canvas" width="907" height="609"></canvas>
+              <script>
+                const canvas = new fabric.Canvas("canvas");
+                fabric.Image.fromURL(
+                  "/assets/body/black_body_1.png",
+                  function (oImg) {
+                    oImg.scale(0.5);
+                    canvas.add(oImg);
+                  }
+                );
+              </script>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- right half of screen contains features select, specific features, and finish button-->
+    <div class="right-screen">
+      <table class="table">
+        <!-- FEATURES SELECT-->
+        <tr id="'features-select">
+          <td>
+            <div class="features">
+              <button class="feature center" onclick="openTab(event, 'body')">
+                <img src="assets/body-icon.png" />
+              </button>
+              <button class="feature center" onclick="openTab(event, 'eyes')">
+                <img src="assets/eyes-icon.png" />
+              </button>
+              <button class="feature center" onclick="openTab(event, 'mouth')">
+                <img src="assets/mouth-icon.png" />
+              </button>
+              <button class="feature center" onclick="openTab(event, 'nose')">
+                <img src="assets/nose-icon.png" />
+              </button>
+              <button class="feature center" onclick="openTab(event, 'ears')">
+                <img src="assets/ears-icon.png" />
+              </button>
+              <button class="feature center" onclick="openTab(event, 'hair')">
+                <img src="assets/hair-icon.png" />
+              </button>
+              <button
+                class="feature center"
+                onclick="openTab(event, 'eyebrow')"
+              >
+                <img src="assets/eyebrow-icon.png" />
+              </button>
+              <button
+                class="feature center"
+                onclick="openTab(event, 'accessories')"
+              >
+                <img src="assets/accessories-icon.png" />
+              </button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- SPECIFIC FEATURES-->
+        <tr id="specific-features">
+          <td>
+            <!--Body features-->
+            <div id="body" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/black_body_1.png')">
+          <img
+            src="assets/body/black_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/black_body_2.png')">
+          <img
+            src="assets/body/black_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/black_body_3.png')">
+          <img
+            src="assets/body/black_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/black_body_4.png')">
+          <img
+            src="assets/body/black_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/black_body_5.png')">
+          <img
+            src="assets/body/black_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/black_body_6.png')">
+          <img
+            src="assets/body/black_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/blue_body_1.png')">
+          <img
+            src="assets/body/blue_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/blue_body_2.png')">
+          <img
+            src="assets/body/blue_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/blue_body_3.png')">
+          <img
+            src="assets/body/blue_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/blue_body_4.png')">
+          <img
+            src="assets/body/blue_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/blue_body_5.png')">
+          <img
+            src="assets/body/blue_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/blue_body_6.png')">
+          <img
+            src="assets/body/blue_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/green_body_1.png')">
+          <img
+            src="assets/body/green_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/green_body_2.png')">
+          <img
+            src="assets/body/green_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/green_body_3.png')">
+          <img
+            src="assets/body/green_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/green_body_4.png')">
+          <img
+            src="assets/body/green_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/green_body_5.png')">
+          <img
+            src="assets/body/green_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/green_body_6.png')">
+          <img
+            src="assets/body/green_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lightblue_body_1.png')">
+          <img
+            src="assets/body/lightblue_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lightblue_body_2.png')">
+          <img
+            src="assets/body/lightblue_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lightblue_body_3.png')">
+          <img
+            src="assets/body/lightblue_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lightblue_body_4.png')">
+          <img
+            src="assets/body/lightblue_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lightblue_body_5.png')">
+          <img
+            src="assets/body/lightblue_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lightblue_body_6.png')">
+          <img
+            src="assets/body/lightblue_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lime_body_1.png')">
+          <img
+            src="assets/body/lime_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lime_body_2.png')">
+          <img
+            src="assets/body/lime_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lime_body_3.png')">
+          <img
+            src="assets/body/lime_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lime_body_4.png')">
+          <img
+            src="assets/body/lime_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lime_body_5.png')">
+          <img
+            src="assets/body/lime_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/lime_body_6.png')">
+          <img
+            src="assets/body/lime_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/mint_body_1.png')">
+          <img
+            src="assets/body/mint_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/mint_body_2.png')">
+          <img
+            src="assets/body/mint_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/mint_body_3.png')">
+          <img
+            src="assets/body/mint_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/mint_body_4.png')">
+          <img
+            src="assets/body/mint_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/mint_body_5.png')">
+          <img
+            src="assets/body/mint_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/mint_body_6.png')">
+          <img
+            src="assets/body/mint_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/orange_body_1.png')">
+          <img
+            src="assets/body/orange_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/orange_body_2.png')">
+          <img
+            src="assets/body/orange_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/orange_body_3.png')">
+          <img
+            src="assets/body/orange_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/orange_body_4.png')">
+          <img
+            src="assets/body/orange_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/orange_body_5.png')">
+          <img
+            src="assets/body/orange_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/orange_body_6.png')">
+          <img
+            src="assets/body/orange_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/pink_body_1.png')">
+          <img
+            src="assets/body/pink_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/pink_body_2.png')">
+          <img
+            src="assets/body/pink_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/pink_body_3.png')">
+          <img
+            src="assets/body/pink_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/pink_body_4.png')">
+          <img
+            src="assets/body/pink_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/pink_body_5.png')">
+          <img
+            src="assets/body/pink_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/pink_body_6.png')">
+          <img
+            src="assets/body/pink_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/purple_body_1.png')">
+          <img
+            src="assets/body/purple_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/purple_body_2.png')">
+          <img
+            src="assets/body/purple_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/purple_body_3.png')">
+          <img
+            src="assets/body/purple_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/purple_body_4.png')">
+          <img
+            src="assets/body/purple_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/purple_body_5.png')">
+          <img
+            src="assets/body/purple_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/purple_body_6.png')">
+          <img
+            src="assets/body/purple_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/red_body_1.png')">
+          <img
+            src="assets/body/red_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/red_body_2.png')">
+          <img
+            src="assets/body/red_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/red_body_3.png')">
+          <img
+            src="assets/body/red_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/red_body_4.png')">
+          <img
+            src="assets/body/red_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/red_body_5.png')">
+          <img
+            src="assets/body/red_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/red_body_6.png')">
+          <img
+            src="assets/body/red_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/white_body_1.png')">
+          <img
+            src="assets/body/white_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/white_body_2.png')">
+          <img
+            src="assets/body/white_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/white_body_3.png')">
+          <img
+            src="assets/body/white_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/white_body_4.png')">
+          <img
+            src="assets/body/white_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/white_body_5.png')">
+          <img
+            src="assets/body/white_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/white_body_6.png')">
+          <img
+            src="assets/body/white_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/yellow_body_1.png')">
+          <img
+            src="assets/body/yellow_body_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/yellow_body_2.png')">
+          <img
+            src="assets/body/yellow_body_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/yellow_body_3.png')">
+          <img
+            src="assets/body/yellow_body_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/yellow_body_4.png')">
+          <img
+            src="assets/body/yellow_body_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/yellow_body_5.png')">
+          <img
+            src="assets/body/yellow_body_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/body/yellow_body_6.png')">
+          <img
+            src="assets/body/yellow_body_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+            <!--Eye features-->
+            <div id="eyes" class="feature-content">
+              <div id="eyes-container" class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/black_eye_1.png')">
+          <img
+            src="assets/eyes/black_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/black_eye_2.png')">
+          <img
+            src="assets/eyes/black_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/black_eye_3.png')">
+          <img
+            src="assets/eyes/black_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/black_eye_4.png')">
+          <img
+            src="assets/eyes/black_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/black_eye_5.png')">
+          <img
+            src="assets/eyes/black_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/black_eye_6.png')">
+          <img
+            src="assets/eyes/black_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/blue_eye_1.png')">
+          <img
+            src="assets/eyes/blue_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/blue_eye_2.png')">
+          <img
+            src="assets/eyes/blue_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/blue_eye_3.png')">
+          <img
+            src="assets/eyes/blue_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/blue_eye_4.png')">
+          <img
+            src="assets/eyes/blue_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/blue_eye_5.png')">
+          <img
+            src="assets/eyes/blue_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/blue_eye_6.png')">
+          <img
+            src="assets/eyes/blue_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/green_eye_1.png')">
+          <img
+            src="assets/eyes/green_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/green_eye_2.png')">
+          <img
+            src="assets/eyes/green_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/green_eye_3.png')">
+          <img
+            src="assets/eyes/green_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/green_eye_4.png')">
+          <img
+            src="assets/eyes/green_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/green_eye_5.png')">
+          <img
+            src="assets/eyes/green_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/green_eye_6.png')">
+          <img
+            src="assets/eyes/green_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lightblue_eye_1.png')">
+          <img
+            src="assets/eyes/lightblue_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lightblue_eye_2.png')">
+          <img
+            src="assets/eyes/lightblue_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lightblue_eye_3.png')">
+          <img
+            src="assets/eyes/lightblue_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lightblue_eye_4.png')">
+          <img
+            src="assets/eyes/lightblue_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lightblue_eye_5.png')">
+          <img
+            src="assets/eyes/lightblue_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lightblue_eye_6.png')">
+          <img
+            src="assets/eyes/lightblue_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lime_eye_1.png')">
+          <img
+            src="assets/eyes/lime_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lime_eye_2.png')">
+          <img
+            src="assets/eyes/lime_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lime_eye_3.png')">
+          <img
+            src="assets/eyes/lime_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lime_eye_4.png')">
+          <img
+            src="assets/eyes/lime_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lime_eye_5.png')">
+          <img
+            src="assets/eyes/lime_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/lime_eye_6.png')">
+          <img
+            src="assets/eyes/lime_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/mint_eye_1.png')">
+          <img
+            src="assets/eyes/mint_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/mint_eye_2.png')">
+          <img
+            src="assets/eyes/mint_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/mint_eye_3.png')">
+          <img
+            src="assets/eyes/mint_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/mint_eye_4.png')">
+          <img
+            src="assets/eyes/mint_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/mint_eye_5.png')">
+          <img
+            src="assets/eyes/mint_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/mint_eye_6.png')">
+          <img
+            src="assets/eyes/mint_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/orange_eye_1.png')">
+          <img
+            src="assets/eyes/orange_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/orange_eye_2.png')">
+          <img
+            src="assets/eyes/orange_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/orange_eye_3.png')">
+          <img
+            src="assets/eyes/orange_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/orange_eye_4.png')">
+          <img
+            src="assets/eyes/orange_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/orange_eye_5.png')">
+          <img
+            src="assets/eyes/orange_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/orange_eye_6.png')">
+          <img
+            src="assets/eyes/orange_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/pink_eye_1.png')">
+          <img
+            src="assets/eyes/pink_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/pink_eye_2.png')">
+          <img
+            src="assets/eyes/pink_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/pink_eye_3.png')">
+          <img
+            src="assets/eyes/pink_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/pink_eye_4.png')">
+          <img
+            src="assets/eyes/pink_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/pink_eye_5.png')">
+          <img
+            src="assets/eyes/pink_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/pink_eye_6.png')">
+          <img
+            src="assets/eyes/pink_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/purple_eye_1.png')">
+          <img
+            src="assets/eyes/purple_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/purple_eye_2.png')">
+          <img
+            src="assets/eyes/purple_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/purple_eye_3.png')">
+          <img
+            src="assets/eyes/purple_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/purple_eye_4.png')">
+          <img
+            src="assets/eyes/purple_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/purple_eye_5.png')">
+          <img
+            src="assets/eyes/purple_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/purple_eye_6.png')">
+          <img
+            src="assets/eyes/purple_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/red_eye_1.png')">
+          <img
+            src="assets/eyes/red_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/red_eye_2.png')">
+          <img
+            src="assets/eyes/red_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/red_eye_3.png')">
+          <img
+            src="assets/eyes/red_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/red_eye_4.png')">
+          <img
+            src="assets/eyes/red_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/red_eye_5.png')">
+          <img
+            src="assets/eyes/red_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/red_eye_6.png')">
+          <img
+            src="assets/eyes/red_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/white_eye_1.png')">
+          <img
+            src="assets/eyes/white_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/white_eye_2.png')">
+          <img
+            src="assets/eyes/white_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/white_eye_3.png')">
+          <img
+            src="assets/eyes/white_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/white_eye_5.png')">
+          <img
+            src="assets/eyes/white_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/white_eye_6.png')">
+          <img
+            src="assets/eyes/white_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/yellow_eye_1.png')">
+          <img
+            src="assets/eyes/yellow_eye_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/yellow_eye_2.png')">
+          <img
+            src="assets/eyes/yellow_eye_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/yellow_eye_3.png')">
+          <img
+            src="assets/eyes/yellow_eye_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/yellow_eye_4.png')">
+          <img
+            src="assets/eyes/yellow_eye_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/yellow_eye_5.png')">
+          <img
+            src="assets/eyes/yellow_eye_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyes/yellow_eye_6.png')">
+          <img
+            src="assets/eyes/yellow_eye_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+<!--Mouth features-->
+            <div id="mouth" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/mouth/mouth_1.png')">
+          <img
+            src="assets/mouth/mouth_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/mouth/mouth_2.png')">
+          <img
+            src="assets/mouth/mouth_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/mouth/mouth_3.png')">
+          <img
+            src="assets/mouth/mouth_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/mouth/mouth_4.png')">
+          <img
+            src="assets/mouth/mouth_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/mouth/mouth_5.png')">
+          <img
+            src="assets/mouth/mouth_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/mouth/mouth_6.png')">
+          <img
+            src="assets/mouth/mouth_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+            <!--Nose features-->
+            <div id="nose" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/black_nose_1.png')">
+          <img
+            src="assets/nose/black_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/black_nose_2.png')">
+          <img
+            src="assets/nose/black_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/black_nose_3.png')">
+          <img
+            src="assets/nose/black_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/blue_nose_1.png')">
+          <img
+            src="assets/nose/blue_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/blue_nose_2.png')">
+          <img
+            src="assets/nose/blue_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/blue_nose_3.png')">
+          <img
+            src="assets/nose/blue_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/green_nose_1.png')">
+          <img
+            src="assets/nose/green_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/green_nose_2.png')">
+          <img
+            src="assets/nose/green_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/green_nose_3.png')">
+          <img
+            src="assets/nose/green_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/lightblue_nose_1.png')">
+          <img
+            src="assets/nose/lightblue_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/lightblue_nose_2.png')">
+          <img
+            src="assets/nose/lightblue_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/lightblue_nose_3.png')">
+          <img
+            src="assets/nose/lightblue_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/lime_nose_1.png')">
+          <img
+            src="assets/nose/lime_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/lime_nose_2.png')">
+          <img
+            src="assets/nose/lime_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/lime_nose_3.png')">
+          <img
+            src="assets/nose/lime_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/mint_nose_1.png')">
+          <img
+            src="assets/nose/mint_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/mint_nose_2.png')">
+          <img
+            src="assets/nose/mint_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/mint_nose_3.png')">
+          <img
+            src="assets/nose/mint_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/orange_nose_1.png')">
+          <img
+            src="assets/nose/orange_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/orange_nose_2.png')">
+          <img
+            src="assets/nose/orange_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/orange_nose_3.png')">
+          <img
+            src="assets/nose/orange_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/pink_nose_1.png')">
+          <img
+            src="assets/nose/pink_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/pink_nose_2.png')">
+          <img
+            src="assets/nose/pink_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/pink_nose_3.png')">
+          <img
+            src="assets/nose/pink_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/purple_nose_1.png')">
+          <img
+            src="assets/nose/purple_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/purple_nose_2.png')">
+          <img
+            src="assets/nose/purple_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/purple_nose_3.png')">
+          <img
+            src="assets/nose/purple_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/red_nose_1.png')">
+          <img
+            src="assets/nose/red_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/red_nose_2.png')">
+          <img
+            src="assets/nose/red_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/red_nose_3.png')">
+          <img
+            src="assets/nose/red_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/white_nose_1.png')">
+          <img
+            src="assets/nose/white_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/white_nose_2.png')">
+          <img
+            src="assets/nose/white_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/white_nose_3.png')">
+          <img
+            src="assets/nose/white_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/yellow_nose_1.png')">
+          <img
+            src="assets/nose/yellow_nose_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/yellow_nose_2.png')">
+          <img
+            src="assets/nose/yellow_nose_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/nose/yellow_nose_3.png')">
+          <img
+            src="assets/nose/yellow_nose_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+            <!--Ears features-->
+            <div id="ears" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/black_ears_4.png')">
+          <img
+            src="assets/ears/black_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/black_ears_5.png')">
+          <img
+            src="assets/ears/black_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/black_ears_6.png')">
+          <img
+            src="assets/ears/black_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/black_ear_1.png')">
+          <img
+            src="assets/ears/black_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/black_ear_2.png')">
+          <img
+            src="assets/ears/black_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/blue_ears_4.png')">
+          <img
+            src="assets/ears/blue_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/blue_ears_5.png')">
+          <img
+            src="assets/ears/blue_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/blue_ears_6.png')">
+          <img
+            src="assets/ears/blue_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/blue_ear_1.png')">
+          <img
+            src="assets/ears/blue_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/blue_ear_2.png')">
+          <img
+            src="assets/ears/blue_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/green_ears_4.png')">
+          <img
+            src="assets/ears/green_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/green_ears_5.png')">
+          <img
+            src="assets/ears/green_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/green_ears_6.png')">
+          <img
+            src="assets/ears/green_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/green_ear_1.png')">
+          <img
+            src="assets/ears/green_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/green_ear_2.png')">
+          <img
+            src="assets/ears/green_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lightblue_ears_4.png')">
+          <img
+            src="assets/ears/lightblue_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lightblue_ears_5.png')">
+          <img
+            src="assets/ears/lightblue_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lightblue_ears_6.png')">
+          <img
+            src="assets/ears/lightblue_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lightblue_ear_1.png')">
+          <img
+            src="assets/ears/lightblue_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lightblue_ear_2.png')">
+          <img
+            src="assets/ears/lightblue_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lime_ears_4.png')">
+          <img
+            src="assets/ears/lime_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lime_ears_5.png')">
+          <img
+            src="assets/ears/lime_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lime_ears_6.png')">
+          <img
+            src="assets/ears/lime_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lime_ear_1.png')">
+          <img
+            src="assets/ears/lime_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/lime_ear_2.png')">
+          <img
+            src="assets/ears/lime_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/mint_ears_4.png')">
+          <img
+            src="assets/ears/mint_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/mint_ears_5.png')">
+          <img
+            src="assets/ears/mint_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/mint_ears_6.png')">
+          <img
+            src="assets/ears/mint_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/mint_ear_1.png')">
+          <img
+            src="assets/ears/mint_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/mint_ear_2.png')">
+          <img
+            src="assets/ears/mint_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/orange_ears_4.png')">
+          <img
+            src="assets/ears/orange_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/orange_ears_5.png')">
+          <img
+            src="assets/ears/orange_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/orange_ears_6.png')">
+          <img
+            src="assets/ears/orange_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/orange_ear_1.png')">
+          <img
+            src="assets/ears/orange_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/orange_ear_2.png')">
+          <img
+            src="assets/ears/orange_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/pink_ears_4.png')">
+          <img
+            src="assets/ears/pink_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/pink_ears_5.png')">
+          <img
+            src="assets/ears/pink_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/pink_ears_6.png')">
+          <img
+            src="assets/ears/pink_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/pink_ear_1.png')">
+          <img
+            src="assets/ears/pink_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/pink_ear_2.png')">
+          <img
+            src="assets/ears/pink_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/purple_ears_4.png')">
+          <img
+            src="assets/ears/purple_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/purple_ears_5.png')">
+          <img
+            src="assets/ears/purple_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/purple_ears_6.png')">
+          <img
+            src="assets/ears/purple_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/purple_ear_1.png')">
+          <img
+            src="assets/ears/purple_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/purple_ear_2.png')">
+          <img
+            src="assets/ears/purple_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/red_ears_4.png')">
+          <img
+            src="assets/ears/red_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/red_ears_5.png')">
+          <img
+            src="assets/ears/red_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/red_ears_6.png')">
+          <img
+            src="assets/ears/red_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/red_ear_1.png')">
+          <img
+            src="assets/ears/red_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/red_ear_2.png')">
+          <img
+            src="assets/ears/red_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/white_ears_4.png')">
+          <img
+            src="assets/ears/white_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/white_ears_5.png')">
+          <img
+            src="assets/ears/white_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/white_ears_6.png')">
+          <img
+            src="assets/ears/white_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/white_ear_1.png')">
+          <img
+            src="assets/ears/white_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/white_ear_2.png')">
+          <img
+            src="assets/ears/white_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/yellow_ears_4.png')">
+          <img
+            src="assets/ears/yellow_ears_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/yellow_ears_5.png')">
+          <img
+            src="assets/ears/yellow_ears_5.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/yellow_ears_6.png')">
+          <img
+            src="assets/ears/yellow_ears_6.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/yellow_ear_1.png')">
+          <img
+            src="assets/ears/yellow_ear_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/ears/yellow_ear_2.png')">
+          <img
+            src="assets/ears/yellow_ear_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+            <!--Hair features-->
+            <div id="hair" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/black_hair_1.png')">
+          <img
+            src="assets/hair/black_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/black_hair_2.png')">
+          <img
+            src="assets/hair/black_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/black_hair_3.png')">
+          <img
+            src="assets/hair/black_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/black_hair_4.png')">
+          <img
+            src="assets/hair/black_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/blue_hair_1.png')">
+          <img
+            src="assets/hair/blue_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/blue_hair_2.png')">
+          <img
+            src="assets/hair/blue_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/blue_hair_3.png')">
+          <img
+            src="assets/hair/blue_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/blue_hair_4.png')">
+          <img
+            src="assets/hair/blue_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/green_hair_1.png')">
+          <img
+            src="assets/hair/green_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/green_hair_2.png')">
+          <img
+            src="assets/hair/green_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/green_hair_3.png')">
+          <img
+            src="assets/hair/green_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/green_hair_4.png')">
+          <img
+            src="assets/hair/green_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lightblue_hair_1.png')">
+          <img
+            src="assets/hair/lightblue_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lightblue_hair_2.png')">
+          <img
+            src="assets/hair/lightblue_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lightblue_hair_3.png')">
+          <img
+            src="assets/hair/lightblue_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lightblue_hair_4.png')">
+          <img
+            src="assets/hair/lightblue_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lime_hair_1.png')">
+          <img
+            src="assets/hair/lime_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lime_hair_2.png')">
+          <img
+            src="assets/hair/lime_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lime_hair_3.png')">
+          <img
+            src="assets/hair/lime_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/lime_hair_4.png')">
+          <img
+            src="assets/hair/lime_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/mint_hair_1.png')">
+          <img
+            src="assets/hair/mint_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/mint_hair_2.png')">
+          <img
+            src="assets/hair/mint_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/mint_hair_3.png')">
+          <img
+            src="assets/hair/mint_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/mint_hair_4.png')">
+          <img
+            src="assets/hair/mint_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/orange_hair_1.png')">
+          <img
+            src="assets/hair/orange_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/orange_hair_2.png')">
+          <img
+            src="assets/hair/orange_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/orange_hair_3.png')">
+          <img
+            src="assets/hair/orange_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/orange_hair_4.png')">
+          <img
+            src="assets/hair/orange_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/pink_hair_1.png')">
+          <img
+            src="assets/hair/pink_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/pink_hair_2.png')">
+          <img
+            src="assets/hair/pink_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/pink_hair_3.png')">
+          <img
+            src="assets/hair/pink_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/pink_hair_4.png')">
+          <img
+            src="assets/hair/pink_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/purple_hair_1.png')">
+          <img
+            src="assets/hair/purple_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/purple_hair_2.png')">
+          <img
+            src="assets/hair/purple_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/purple_hair_3.png')">
+          <img
+            src="assets/hair/purple_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/purple_hair_4.png')">
+          <img
+            src="assets/hair/purple_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/red_hair_1.png')">
+          <img
+            src="assets/hair/red_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/red_hair_2.png')">
+          <img
+            src="assets/hair/red_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/red_hair_3.png')">
+          <img
+            src="assets/hair/red_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/red_hair_4.png')">
+          <img
+            src="assets/hair/red_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/white_hair_1.png')">
+          <img
+            src="assets/hair/white_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/white_hair_2.png')">
+          <img
+            src="assets/hair/white_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/white_hair_3.png')">
+          <img
+            src="assets/hair/white_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/white_hair_4.png')">
+          <img
+            src="assets/hair/white_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/yellow_hair_1.png')">
+          <img
+            src="assets/hair/yellow_hair_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/yellow_hair_2.png')">
+          <img
+            src="assets/hair/yellow_hair_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/yellow_hair_3.png')">
+          <img
+            src="assets/hair/yellow_hair_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/hair/yellow_hair_4.png')">
+          <img
+            src="assets/hair/yellow_hair_4.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+            <!--Eyebrow features-->
+            <div id="eyebrow" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/black_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/black_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/black_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/black_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/black_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/black_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/blue_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/blue_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/blue_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/blue_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/blue_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/blue_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/green_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/green_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/green_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/green_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/green_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/green_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/lightblue_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/lightblue_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/lightblue_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/lightblue_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/lightblue_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/lightblue_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/lime_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/lime_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/lime_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/lime_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/lime_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/lime_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/mint_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/mint_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/mint_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/mint_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/mint_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/mint_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/orange_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/orange_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/orange_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/orange_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/orange_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/orange_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/pink_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/pink_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/pink_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/pink_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/pink_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/pink_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/purple_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/purple_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/purple_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/purple_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/purple_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/purple_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/red_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/red_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/red_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/red_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/red_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/red_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/white_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/white_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/white_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/white_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/white_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/white_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/yellow_eyebrow_1.png')">
+          <img
+            src="assets/eyebrows/yellow_eyebrow_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/yellow_eyebrow_2.png')">
+          <img
+            src="assets/eyebrows/yellow_eyebrow_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/eyebrows/yellow_eyebrow_3.png')">
+          <img
+            src="assets/eyebrows/yellow_eyebrow_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+            <!--Accessories features-->
+            <div id="accessories" class="feature-content">
+              <div class="feature-grid">
+
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/black_acc_1.png')">
+          <img
+            src="assets/accessories/black_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/black_acc_2.png')">
+          <img
+            src="assets/accessories/black_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/black_acc_3.png')">
+          <img
+            src="assets/accessories/black_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/black_horns_1.png')">
+          <img
+            src="assets/accessories/black_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/black_horns_2.png')">
+          <img
+            src="assets/accessories/black_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/black_wings_1.png')">
+          <img
+            src="assets/accessories/black_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/blue_acc_1.png')">
+          <img
+            src="assets/accessories/blue_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/blue_acc_2.png')">
+          <img
+            src="assets/accessories/blue_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/blue_acc_3.png')">
+          <img
+            src="assets/accessories/blue_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/blue_horns_1.png')">
+          <img
+            src="assets/accessories/blue_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/blue_horns_2.png')">
+          <img
+            src="assets/accessories/blue_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/blue_wings_1.png')">
+          <img
+            src="assets/accessories/blue_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/green_acc_1.png')">
+          <img
+            src="assets/accessories/green_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/green_acc_2.png')">
+          <img
+            src="assets/accessories/green_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/green_acc_3.png')">
+          <img
+            src="assets/accessories/green_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/green_horns_1.png')">
+          <img
+            src="assets/accessories/green_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/green_horns_2.png')">
+          <img
+            src="assets/accessories/green_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/green_wings_1.png')">
+          <img
+            src="assets/accessories/green_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lightblue_acc_1.png')">
+          <img
+            src="assets/accessories/lightblue_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lightblue_acc_2.png')">
+          <img
+            src="assets/accessories/lightblue_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lightblue_acc_3.png')">
+          <img
+            src="assets/accessories/lightblue_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lightblue_horns_1.png')">
+          <img
+            src="assets/accessories/lightblue_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lightblue_horns_2.png')">
+          <img
+            src="assets/accessories/lightblue_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lightblue_wings_1.png')">
+          <img
+            src="assets/accessories/lightblue_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lime_acc_1.png')">
+          <img
+            src="assets/accessories/lime_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lime_acc_2.png')">
+          <img
+            src="assets/accessories/lime_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lime_acc_3.png')">
+          <img
+            src="assets/accessories/lime_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lime_horns_1.png')">
+          <img
+            src="assets/accessories/lime_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lime_horns_2.png')">
+          <img
+            src="assets/accessories/lime_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/lime_wings_1.png')">
+          <img
+            src="assets/accessories/lime_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/mint_acc_1.png')">
+          <img
+            src="assets/accessories/mint_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/mint_acc_2.png')">
+          <img
+            src="assets/accessories/mint_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/mint_acc_3.png')">
+          <img
+            src="assets/accessories/mint_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/mint_horns_1.png')">
+          <img
+            src="assets/accessories/mint_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/mint_horns_2.png')">
+          <img
+            src="assets/accessories/mint_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/mint_wings_1.png')">
+          <img
+            src="assets/accessories/mint_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/orange_acc_1.png')">
+          <img
+            src="assets/accessories/orange_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/orange_acc_2.png')">
+          <img
+            src="assets/accessories/orange_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/orange_acc_3.png')">
+          <img
+            src="assets/accessories/orange_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/orange_horns_1.png')">
+          <img
+            src="assets/accessories/orange_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/orange_horns_2.png')">
+          <img
+            src="assets/accessories/orange_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/orange_wings_1.png')">
+          <img
+            src="assets/accessories/orange_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/pink_acc_1.png')">
+          <img
+            src="assets/accessories/pink_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/pink_acc_2.png')">
+          <img
+            src="assets/accessories/pink_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/pink_acc_3.png')">
+          <img
+            src="assets/accessories/pink_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/pink_horns_1.png')">
+          <img
+            src="assets/accessories/pink_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/pink_horns_2.png')">
+          <img
+            src="assets/accessories/pink_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/pink_wings_1.png')">
+          <img
+            src="assets/accessories/pink_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/purple_acc_1.png')">
+          <img
+            src="assets/accessories/purple_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/purple_acc_2.png')">
+          <img
+            src="assets/accessories/purple_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/purple_acc_3.png')">
+          <img
+            src="assets/accessories/purple_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/purple_horns_1.png')">
+          <img
+            src="assets/accessories/purple_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/purple_horns_2.png')">
+          <img
+            src="assets/accessories/purple_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/purple_wings_1.png')">
+          <img
+            src="assets/accessories/purple_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/red_acc_1.png')">
+          <img
+            src="assets/accessories/red_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/red_acc_2.png')">
+          <img
+            src="assets/accessories/red_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/red_acc_3.png')">
+          <img
+            src="assets/accessories/red_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/red_horns_1.png')">
+          <img
+            src="assets/accessories/red_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/red_horns_2.png')">
+          <img
+            src="assets/accessories/red_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/red_wings_1.png')">
+          <img
+            src="assets/accessories/red_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/white_acc_1.png')">
+          <img
+            src="assets/accessories/white_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/white_acc_2.png')">
+          <img
+            src="assets/accessories/white_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/white_acc_3.png')">
+          <img
+            src="assets/accessories/white_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/white_horns_1.png')">
+          <img
+            src="assets/accessories/white_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/white_horns_2.png')">
+          <img
+            src="assets/accessories/white_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/white_wings_1.png')">
+          <img
+            src="assets/accessories/white_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/yellow_acc_1.png')">
+          <img
+            src="assets/accessories/yellow_acc_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/yellow_acc_2.png')">
+          <img
+            src="assets/accessories/yellow_acc_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/yellow_acc_3.png')">
+          <img
+            src="assets/accessories/yellow_acc_3.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/yellow_horns_1.png')">
+          <img
+            src="assets/accessories/yellow_horns_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/yellow_horns_2.png')">
+          <img
+            src="assets/accessories/yellow_horns_2.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+        <button
+          class="image-button"
+          onclick="drawImage('assets/accessories/yellow_wings_1.png')">
+          <img
+            src="assets/accessories/yellow_wings_1.png"
+            width="50%"
+            height="50%"
+            class="img-center"
+          />
+        </button>
+        
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr id="finish">
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      // Function to draw an image on the canvas, takes in the feature as a string
+      function drawImage(feature) {
+        fabric.Image.fromURL(feature, function (oImg) {
+          oImg.scale(0.5);
+          canvas.add(oImg);
+        });
+      }
+      
+      function deleteImage() {
+        canvas.remove(canvas.getActiveObject());
+      }
+    </script>
+    
+    <script>
+      document.getElementById("finishButton").addEventListener("click", function () {
+      // Capture the canvas as an image URL
+      var screenshotUrl = canvas.toDataURL({ format: "png" });
+
+      // Create an image element to display the screenshot
+      var screenshotImage = new Image();
+      screenshotImage.src = screenshotUrl;
+
+      // localStorage.clear();
+      // Create a data URI for the exported image and store it in localStorage
+      localStorage.setItem("canvasImage", screenshotUrl);
+      });
+    </script>
+
+    <!-- import the webpage's javascript file -->
+    <script src="/game2.js" defer></script>
+  </body>
+</html>

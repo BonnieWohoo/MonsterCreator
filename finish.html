@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Monster Creator | Finish</title>
+    <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="./css/finish.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="capture-div-png" class="left-panel">
+        <div class="text">
+          <p id="output"></p>
+        </div>
+
+        <div class="image-1">
+          <img id="display-image" />
+        </div>
+
+        <div class="image-2">
+          <img id="card-image" src="/assets/cards/fire.png" />
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="title">
+          <p><strong>FINISHED</strong></p>
+        </div>
+
+        <div class="input-container">
+          <label class="monster-name" for="monster-name">Monster Name</label
+          ><br />
+          <input
+            type="text"
+            id="userInput"
+            name="firstname"
+            maxlength="15"
+            placeholder="Enter a name..."
+          />
+
+          <p class="monster-element">Monster Element</p>
+          <div class="button-container">
+            <button id="button1">Fire</button>
+            <button id="button2">Grass</button>
+            <button id="button3">Water</button>
+            <button id="button4">Toxic</button>
+            <button id="button5">Cosmic</button>
+            <button id="button6">Chaos</button>
+          </div>
+        </div>
+
+        <div class="save-button">
+          <button id="save-button"><strong>SAVE</strong></button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get references to the input and <p> elements
+      const userInput = document.getElementById("userInput");
+      const outputParagraph = document.getElementById("output");
+
+      // Add an event listener to the input field
+      userInput.addEventListener("input", function () {
+        // Update the <p> element's text content with the user's input
+        outputParagraph.textContent = userInput.value;
+      });
+    </script>
+
+    <script>
+      // Get references to the image element and buttons
+      const imageElement = document.getElementById("card-image");
+      const button1 = document.getElementById("button1");
+      const button2 = document.getElementById("button2");
+      const button3 = document.getElementById("button3");
+      const button4 = document.getElementById("button4");
+      const button5 = document.getElementById("button5");
+      const button6 = document.getElementById("button6");
+
+      // Define the image sources for each button
+      const imageSources = {
+        button1: "/assets/cards/fire.png",
+        button2: "/assets/cards/grass.png",
+        button3: "/assets/cards/water.png",
+        button4: "/assets/cards/toxic.png",
+        button5: "/assets/cards/cosmic.png",
+        button6: "/assets/cards/chaos.png",
+      };
+
+      // Add click event listeners to the buttons
+      button1.addEventListener("click", () => changeImage("button1"));
+      button2.addEventListener("click", () => changeImage("button2"));
+      button3.addEventListener("click", () => changeImage("button3"));
+      button4.addEventListener("click", () => changeImage("button4"));
+      button5.addEventListener("click", () => changeImage("button5"));
+      button6.addEventListener("click", () => changeImage("button6"));
+
+      // Function to change the image source
+      function changeImage(buttonId) {
+        const newImageSource = imageSources[buttonId];
+        if (newImageSource) {
+          imageElement.src = newImageSource;
+        }
+      }
+    </script>
+
+    <script>
+      // Save left-panel <div> as .png
+      document
+        .getElementById("save-button")
+        .addEventListener("click", function () {
+          const divToCapture = document.getElementById("capture-div-png");
+
+          // Use a library like html2canvas to capture the div as an image
+          html2canvas(divToCapture).then(function (canvas) {
+            // Create an <a> element to trigger the download
+            const a = document.createElement("a");
+            a.href = canvas.toDataURL("image/png");
+            a.download = "Monster Creator.png";
+            a.click();
+          });
+        });
+    </script>
+
+    <script src="./js/finish.js"></script>
+  </body>
+</html>
