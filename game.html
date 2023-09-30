@@ -1,0 +1,275 @@
+<!--
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Monster Creator</title>
+
+    <!XX import the webpage's stylesheet -XX>
+    <link rel="stylesheet" href="/style.css" />
+
+    <!XX import the webpage's javascript file XX>
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    You can make your monster here!
+    <div class="resizable">
+      <img
+        src="https://i.pinimg.com/originals/eb/77/0c/eb770c91d22d94af02e57ae48f870770.jpg"
+        alt=""
+      />
+    </div>
+    <!XX Draggable DIV XX>
+    <div id="mydiv">
+      <!XX Include a header DIV with the same name as the draggable DIV, followed by "header" XX>
+      <div id="mydivheader">Click here to move</div>
+      <p>Move</p>
+      <p>this</p>
+      <p>DIV</p>
+    </div>
+  </body>
+</html>
+-->
+
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Monster Creator</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <!-- left half of screen contains icons and monster containers-->
+    <div class="left-screen">
+      <table class="table">
+        <!-- ICON BAR-->
+        <tr id="icon-bar">
+          <td>
+            <div class="icon-left">
+              <a id="go-home" href="https://harsh-working-swift.glitch.me/" class="center" ><img src="assets/house-icon.png"> </a>
+            </div>
+            <!--<div class="icon-left">
+              <button class="center"> <img src="assets/trash-icon.png"> </button>
+            </div>
+            <div class="icon-right">
+              <button class="center" ><img src="assets/redo-icon.png"> </button>
+            </div>
+            <div class="icon-right">
+              <button class="center" ><img src="assets/undo-icon.png"> </button>
+            </div>-->
+          </td>
+
+        </tr>
+        <!-- MONSTER-->
+        <tr id="monster">
+          <td>
+            <img src="assets/monster.png" width="700" class="img-center">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- right half of screen contains features select, specific features, and finish button-->
+    <div class="right-screen">
+      <table class="table">
+        <!-- FEATURES SELECT-->
+        <tr id="'features-select">
+          <td>
+            <div class="features">
+              <button class="feature center" onclick="openTab(event, 'body')"><img src="assets/body-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'eyes')"><img src="assets/eyes-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'mouth')" ><img src="assets/mouth-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'nose')" ><img src="assets/nose-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'ears')" ><img src="assets/ears-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'hair')" ><img src="assets/hair-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'eyebrow')" ><img src="assets/eyebrow-icon.png"> </button>
+              <button class="feature center" onclick="openTab(event, 'accessories')" ><img src="assets/accessories-icon.png"> </button>
+            </div>
+          </td>
+        </tr>
+        
+        <!-- SPECIFIC FEATURES-->
+        <tr id="specific-features">
+            <td>
+              <div id="body" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/body/black_body_1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/black_body_2.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/black_body_3.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/black_body_4.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/black_body_5.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/black_body_6.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/blue_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/blue_body_2.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/blue_body_3.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/blue_body_4.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/blue_body_5.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/blue_body_6.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/body/green_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/green_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/green_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/green_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/green_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/green_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lightblue_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lightblue_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lightblue_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lightblue_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lightblue_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lightblue_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lime_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lime_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lime_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lime_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lime_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/lime_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/mint_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/mint_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/mint_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/mint_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/mint_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/mint_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/orange_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/orange_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/orange_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/orange_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/orange_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/orange_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/pink_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/pink_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/pink_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/pink_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/pink_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/pink_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/purple_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/purple_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/purple_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/purple_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/purple_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/purple_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/red_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/red_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/red_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/red_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/red_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/red_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/white_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/white_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/white_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/white_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/white_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/white_body_6.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/yellow_body_1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/yellow_body_2.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/yellow_body_3.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/yellow_body_4.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/yellow_body_5.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/body/yellow_body_6.png" width="50%" height="50%" class="img-center">   
+              
+                </div>
+              </div>
+              <div id="eyes" class="feature-content">  
+                <div class="feature-grid">
+                  <img src="assets/eyes/leye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/reye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/leye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/reye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/leye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/reye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/leye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/reye1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/eyes/leye1.png" width="50%" height="50%" class="img-center"> 
+                </div>
+              </div>
+              <div id="mouth" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/mouth/mouth1.png" width="50%" height="50%" class="img-center"> 
+                </div>
+              </div>
+              <div id="nose" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/nose/nose1.png" width="50%" height="50%" class="img-center"> 
+                </div>
+              </div>
+              <div id="ears" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/ears/lear1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/ears/rear1.png" width="50%" height="50%" class="img-center"> 
+                  <img src="assets/ears/lear1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/ears/rear1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/ears/lear1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/ears/rear1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/ears/lear1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/ears/rear1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/ears/lear1.png" width="50%" height="50%" class="img-center">
+                </div>
+              </div>
+              <div id="hair" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/hair/hair1.png" width="50%" height="50%" class="img-center">
+                </div>
+              </div>
+              <div id="eyebrow" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/eyebrows/eyebrow1.png" width="50%" height="50%" class="img-center">
+                </div>
+              </div>
+              <div id="accessories" class="feature-content">
+                <div class="feature-grid">
+                  <img src="assets/accessories/laccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/raccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/laccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/raccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/laccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/raccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/laccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/raccessory1.png" width="50%" height="50%" class="img-center">
+                  <img src="assets/accessories/laccessory1.png" width="50%" height="50%" class="img-center">
+                </div>
+              </div>
+            </td>
+        </tr>
+        <!-- FINISH BUTTON--> 
+        <tr id="finish">
+          <td>
+            <button id="finish-button" type="button" class="img-center"> FINISH </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
